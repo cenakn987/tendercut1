@@ -1,0 +1,31 @@
+<div class="main-container">
+    <header class="header">Login</header>
+    <form [formGroup]="loginForm" (ngSubmit)="submit()" class="form">
+        <div class="login_field">
+            <div class="username_field">
+                <img class="icon" src="../../assets/icons/user.png"/>
+                
+                <input type="text" placeholder="name" class="username_textArea" formControlName="name"><br>
+            </div>
+            <div class="error">
+                <span *ngIf="((name?.pristine && name?.touched) || name?.invalid ) && name?.errors?.required">Name is required</span><br>
+                <span *ngIf="((name?.pristine && name?.touched) || name?.invalid ) && name?.errors?.maxlength">Name must be 4 characters</span><br>
+                <span *ngIf="name?.errors?.pattern">Name must not be special characters</span>
+                <br>
+            </div>
+            <div class="password_field">
+                <img class="icon" src="../../assets/icons/password.png"/>
+                <input type="password" placeholder="Password" class="password_textArea" formControlName="password"><br>
+            </div>
+            <div class="error">
+                <span *ngIf="password?.errors?.pattern">password not valid</span>
+            </div>
+            <div class="submit_field">
+                <button class="submit_btn">Login</button>
+            </div>
+        </div>
+        
+    </form>
+</div>
+
+
